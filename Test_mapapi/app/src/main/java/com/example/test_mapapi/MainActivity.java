@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.RelativeLayout;
+
+import net.daum.mf.map.api.MapView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -17,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getHashKey();
+        //getHashKey();
     }
 
-
+/*
     private void getHashKey() {
         PackageInfo packageInfo = null;
         try {
@@ -40,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("KeyHash", "Unable to get MessageDigest. signature=" + signature, e);
             }
         }
-    }
+    }*/ //Hash key value 얻기
+
+    MapView mapView = new MapView(this);
+    mapView.setDaumMapApiKey("fe86db0c7d72098f7a7faba9aff370fc");
+    RelativeLayout container = (RelativeLayout) findViewById(R.id.map_view);
+    container.addView(mapView);
+
+
+
 
 }
